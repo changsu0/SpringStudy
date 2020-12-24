@@ -9,8 +9,8 @@
 		</layout>
 	</appender>
 	<!-- Application Loggers -->
-	<logger name="com">
-		<level value="info" />
+	<logger name="com.cs.first">
+		<level value="debug" />
 	</logger>
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
