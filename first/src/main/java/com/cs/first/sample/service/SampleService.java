@@ -9,5 +9,11 @@ public interface SampleService {
 	
 	void insertBoard(Map<String, Object> map) throws Exception;
 
+	public Map<String, Object> selectBoardDetail(Map<String, Object> map) throws Exception;
+
+	public void updateBoard(Map<String, Object> map) throws Exception;
+
+	public void deleteBoard(Map<String, Object> map) throws Exception;
+
 
 }
