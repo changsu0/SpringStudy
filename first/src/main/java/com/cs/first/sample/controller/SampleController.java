@@ -1,9 +1,7 @@
 package com.cs.first.sample.controller;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import javax.annotation.Resource;
 
@@ -22,20 +20,6 @@ public class SampleController {
 
 	@Resource(name = "sampleService")
 	private SampleService sampleService;
-
-	@RequestMapping(value = "/sample/testMapArgumentResolver.do")
-	public ModelAndView testMapArgumentResolver(CommandMap commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("");
-		if (!commandMap.isEmpty()) {
-			Iterator<Entry<String, Object>> iterator = commandMap.getMap().entrySet().iterator();
-			Entry<String, Object> entry = null;
-			while (iterator.hasNext()) {
-				entry = iterator.next();
-				log.debug("key : " + entry.getKey() + ", value : " + entry.getValue());
-			}
-		}
-		return mv;
-	}
 
 	@RequestMapping(value = "/sample/openBoardList.do")
 	public ModelAndView openBoardList(Map<String, Object> commandMap) throws Exception {
