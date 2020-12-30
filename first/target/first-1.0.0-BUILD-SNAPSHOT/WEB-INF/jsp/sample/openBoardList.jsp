@@ -26,8 +26,11 @@
 				<c:when test="${fn:length(list) > 0}">
 					<c:forEach items="${list }" var="row">
 						<tr>
-							<td align="center">${row.USER_ID }</td>
-							<td align="center">${row.USER_NM }</td>
+							<td align="center">
+								<a href="#this" name="title">${row.user_id }</a>
+								<input type="hidden" id="user_id" value="${row.user_id }">
+							</td>
+							<td align="center">${row.user_nm }</td>
 						</tr>
 					</c:forEach>
 				</c:when>
@@ -49,6 +52,11 @@
 				e.preventDefault(); 
 				fn_openBoardWrite(); 
 			});
+			
+			$("a[name='title']").on("click", function(e){ //제목 
+				e.preventDefault();
+				fn_openBoardDetail($(this));
+			});
 
 		});
 		function fn_openBoardWrite() {
@@ -56,7 +64,13 @@
 			comSubmit.setUrl("<c:url value='/sample/openBoardWrite.do' />");
 			comSubmit.submit();
 		}
+		
+		function fn_openBoardDetail(obj){
+			var comSubmit = new ComSubmit();
+			comSubmit.setUrl("<c:url value='/sample/openBoardDetail.do' />");
+			comSubmit.addParam("user_id", obj.parent().find("#user_id").val());
+			comSubmit.submit();
+		}
 	</script>
 </body>
 </html>
-

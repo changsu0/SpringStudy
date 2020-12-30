@@ -18,9 +18,9 @@
 			<tbody>
 				<tr>
 					<th scope="row">아이디</th>
-					<td><input type="text" name="user_id" id="USER_ID" value="${map.USER_ID }" readonly="readonly"/></td>
+					<td><input type="text" name="user_id" id="user_id" value="${map.user_id }" readonly="readonly"/></td>
 					<th scope="row">이름</th>
-					<td><input type="text" name="user_nm" id="USER_NM" value="${map.USER_NM }" /></td>
+					<td><input type="text" name="user_nm" id="user_nm" value="${map.user_nm }" /></td>
 				</tr>
 			</tbody>
 		</table>

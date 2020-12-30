@@ -23,13 +23,6 @@ public class SampleController {
 	@Resource(name = "sampleService")
 	private SampleService sampleService;
 
-	@RequestMapping(value = "/sample/openSampleList.do")
-	public ModelAndView openSampleList(Map<String, Object> commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("");
-		log.debug("인터셉터 테스트");
-		return mv;
-	}
-
 	@RequestMapping(value = "/sample/testMapArgumentResolver.do")
 	public ModelAndView testMapArgumentResolver(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView("");
@@ -41,14 +34,6 @@ public class SampleController {
 				log.debug("key : " + entry.getKey() + ", value : " + entry.getValue());
 			}
 		}
-		return mv;
-	}
-
-	@RequestMapping(value = "/sample/openSampleBoardList.do")
-	public ModelAndView openSampleBoardList(Map<String, Object> commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("/sample/boardList");
-		List<Map<String, Object>> list = sampleService.selectBoardList(commandMap);
-		mv.addObject("list", list);
 		return mv;
 	}
 

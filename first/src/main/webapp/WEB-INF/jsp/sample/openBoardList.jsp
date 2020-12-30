@@ -27,10 +27,10 @@
 					<c:forEach items="${list }" var="row">
 						<tr>
 							<td align="center">
-								<a href="#this" name="title">${row.USER_ID }</a>
-								<input type="hidden" id="USER_ID" value="${row.USER_ID }">
+								<a href="#this" name="title">${row.user_id }</a>
+								<input type="hidden" id="user_id" value="${row.user_id }">
 							</td>
-							<td align="center">${row.USER_NM }</td>
+							<td align="center">${row.user_nm }</td>
 						</tr>
 					</c:forEach>
 				</c:when>
@@ -68,7 +68,7 @@
 		function fn_openBoardDetail(obj){
 			var comSubmit = new ComSubmit();
 			comSubmit.setUrl("<c:url value='/sample/openBoardDetail.do' />");
-			comSubmit.addParam("USER_ID", obj.parent().find("#USER_ID").val());
+			comSubmit.addParam("user_id", obj.parent().find("#user_id").val());
 			comSubmit.submit();
 		}
 	</script>

@@ -1,19 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="sample">
-	<select id="selectBoardList" parameterType="hashmap"
-		resultType="hashmap"> 
-	
+	<select id="selectBoardList" parameterType="hashmap" resultType="hashmap"> 
 		<![CDATA[ 
-			SELECT USER_ID, USER_NM FROM TB_USER 
+			SELECT user_id, user_nm FROM kcs_user 
 		]]>
 	</select>
 
 	<insert id="insertBoard" parameterType="hashmap"> 
 	<![CDATA[ 
 	
-	INSERT INTO TB_USER ( USER_ID, USER_NM ) 
+	INSERT INTO kcs_user ( user_id, user_nm ) 
 	VALUES ( #{user_id}, #{user_nm} ) ]]>
 	</insert>
+
+	<select id="selectBoardDetail" parameterType="hashmap" resultType="hashmap"> 
+		<![CDATA[ 
+			SELECT 
+				user_id, user_nm
+			FROM kcs_user 
+			WHERE user_id = #{user_id} 
+		]]>
+	</select>
+
+	<update id="updateBoard" parameterType="hashmap"> 
+	<![CDATA[ 
+	UPDATE kcs_user SET
+		user_nm = #{user_nm}
+	WHERE user_id = #{user_id}
+	]]>
+	</update>
+
+	<delete id="deleteBoard" parameterType="hashmap"> 
+	<![CDATA[ 
+	DELETE FROM kcs_user
+	WHERE user_id = #{user_id}
+	]]>
+	</delete>
 
 </mapper>
 
